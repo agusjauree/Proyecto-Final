@@ -1,0 +1,26 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Usuario</title>
+</head>
+<body>
+    <div class="formulario">
+        <h1>Nuevo Usuario</h1>
+        <form method="post" action="{% url 'inicio' %}">
+           {% csrf_token %}
+           <div class="username">
+              <input type="text" required>
+              <label>Nombre de Usuario</label>
+           </div>
+           <div class="contraseña">
+              <input type="password" required>
+              <label>Contraseña</label>
+           </div>
+           <input type="submit" class="btn btn-primary" value="Iniciar Sesion">
+        </form>  
+    </div>
+</body>
+</html>

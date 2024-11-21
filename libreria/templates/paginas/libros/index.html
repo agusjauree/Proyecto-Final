@@ -1,0 +1,77 @@
+{% extends "paginas/base.html" %}
+
+{% block titulo %} Lista de libros {% endblock %}
+
+{% block contenido %}
+ <div class="card">
+    <div class="card-header">
+        Mis Libros
+
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Libros</h4>
+        <a
+            name=""
+            id=""
+            class="btn btn-success"
+            href="{% url 'crear' %}"
+            role="button"
+            >Agregar nuevo Libro</a
+        >
+        
+        <div
+            class="table-responsive"
+        >
+            <table
+                class="table  table-small"
+            >
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for libros in libros %}
+                    <tr>
+                        <td>{{ libros.id }}</td>
+                        <td>{{ libros.titulo }}</td>
+                        <td>
+                        <img src="{{ libros.imagen.url }}" height="100">  
+                            
+                        </td>
+                        <td>{{ libros.descripcion }}</td>
+                        <td><a
+                            name=""
+                            id=""
+                            class="btn btn-info"
+                            href="{% url 'editar' libros.id %}"
+                            role="button"
+                            >Editar</a
+                        >
+                        |
+                        <a
+                            name=""
+                            id=""
+                            class="btn btn-danger"
+                            href="{% url 'eliminar' libros.id %}"
+                            role="button"
+                            >Eliminar</a
+                        >
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">
+        
+    </div>
+ </div>
+ 
+ {% endblock %}
